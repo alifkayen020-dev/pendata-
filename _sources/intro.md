@@ -1,11 +1,6 @@
-# Welcome to your Jupyter Book
+# Welcome to Penambangan Data
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
-
-Check out the content pages bundled with this sample book to see more.
+Di era informasi saat ini, volume data berkembang dengan kecepatan yang luar biasa. Kemampuan untuk menggali, menganalisis, dan mengekstraksi pengetahuan berharga dari tumpukan data mentah telah menjadi kebutuhan esensial di berbagai sektor. Buku ini disusun dengan tujuan untuk memberikan panduan yang terstruktur dan komprehensif mengenai konsep dasar, algoritma, serta penerapan praktis dari penambangan data (data mining).
 
 ```{tableofcontents}
 ```

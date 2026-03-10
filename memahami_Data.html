@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Memahami Data &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'memahami_Data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HIMPUNAN — Data" href="data.html" />
+    <link rel="prev" title="Data Understanding" href="data-understanding.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">Data Understanding</a></li>
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Memahami Data</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="data.html">HIMPUNAN — Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmemahami_Data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/memahami_Data.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Memahami Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Memahami Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aktivitas-dalam-data-understanding">Aktivitas dalam Data Understanding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-initial-data">1. Collect Initial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegiatan-yang-dilakukan">Kegiatan yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-tahap-ini">Tujuan Tahap Ini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-data">2. Describe Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hal-yang-dilakukan">Hal yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tujuan Tahap Ini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-pada-dataset-iris">Contoh pada Dataset Iris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-data">3. Explore Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Kegiatan yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Tujuan Tahap Ini</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-yang-sering-digunakan-dalam-explore-data">Tools yang Sering Digunakan dalam Explore Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">1. Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">2. Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">3. Correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-feature-importance">4. Rank (Feature Importance)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="memahami-data">
+<h1>Memahami Data<a class="headerlink" href="#memahami-data" title="Link to this heading">#</a></h1>
+<p>Tahap ini merupakan fondasi utama dalam siklus analisis data karena seluruh keputusan pada tahap berikutnya (data preparation, modeling, dan evaluation) sangat bergantung pada pemahaman yang benar terhadap data.</p>
+<p>Pada tahap ini, analis mulai berinteraksi langsung dengan dataset untuk memahami:</p>
+<ul class="simple">
+<li><p>Isi data (content)</p></li>
+<li><p>Struktur data (structure)</p></li>
+<li><p>Tipe dan format data</p></li>
+<li><p>Kualitas data</p></li>
+<li><p>Potensi permasalahan dalam data</p></li>
+<li><p>Kesesuaian data dengan tujuan analisis</p></li>
+</ul>
+<p>Kesalahan dalam memahami data dapat menyebabkan:</p>
+<ul class="simple">
+<li><p>Pemilihan metode yang tidak tepat</p></li>
+<li><p>Interpretasi hasil yang salah</p></li>
+<li><p>Model yang tidak akurat</p></li>
+<li><p>Kesimpulan yang menyesatkan</p></li>
+</ul>
+<p>Oleh karena itu, Data Understanding menjadi tahap yang sangat krusial dalam proses data mining.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="aktivitas-dalam-data-understanding">
+<h1>Aktivitas dalam Data Understanding<a class="headerlink" href="#aktivitas-dalam-data-understanding" title="Link to this heading">#</a></h1>
+<p>Tahap Data Understanding umumnya terdiri dari beberapa aktivitas utama berikut:</p>
+<hr class="docutils" />
+<section id="collect-initial-data">
+<h2>1. Collect Initial Data<a class="headerlink" href="#collect-initial-data" title="Link to this heading">#</a></h2>
+<section id="pengertian">
+<h3>Pengertian<a class="headerlink" href="#pengertian" title="Link to this heading">#</a></h3>
+<p>Collect Initial Data adalah proses pengumpulan data awal dari berbagai sumber yang relevan dengan tujuan analisis.</p>
+<p>Tahap ini tidak hanya sekadar mengambil data, tetapi juga memastikan bahwa data yang dikumpulkan sesuai dengan kebutuhan penelitian atau proyek.</p>
+</section>
+<section id="kegiatan-yang-dilakukan">
+<h3>Kegiatan yang Dilakukan<a class="headerlink" href="#kegiatan-yang-dilakukan" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Mengambil data dari berbagai sumber (file CSV, Excel, database, API, website)</p></li>
+<li><p>Memastikan data relevan dengan permasalahan yang ingin diselesaikan</p></li>
+<li><p>Mengetahui jumlah data yang tersedia</p></li>
+<li><p>Memastikan data dapat diakses dan dibaca dengan baik</p></li>
+<li><p>Membuat laporan ringkas mengenai data awal</p></li>
+</ul>
+</section>
+<section id="tujuan-tahap-ini">
+<h3>Tujuan Tahap Ini<a class="headerlink" href="#tujuan-tahap-ini" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Menjamin ketersediaan data</p></li>
+<li><p>Menilai kelayakan data untuk dianalisis</p></li>
+<li><p>Menghindari penggunaan data yang tidak relevan</p></li>
+</ul>
+</section>
+<section id="contoh">
+<h3>Contoh<a class="headerlink" href="#contoh" title="Link to this heading">#</a></h3>
+<p>Mengambil dataset Iris dari file CSV yang berisi 150 data bunga dengan 5 atribut.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="describe-data">
+<h2>2. Describe Data<a class="headerlink" href="#describe-data" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Pengertian<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Describe Data adalah tahap mendeskripsikan karakteristik dataset secara menyeluruh untuk memahami struktur dan isi data.</p>
+<p>Tahap ini membantu analis mengetahui bagaimana data tersusun dan apa arti dari setiap atribut.</p>
+</section>
+<section id="hal-yang-dilakukan">
+<h3>Hal yang Dilakukan<a class="headerlink" href="#hal-yang-dilakukan" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Mengetahui jumlah baris (records)</p></li>
+<li><p>Mengetahui jumlah kolom (attributes)</p></li>
+<li><p>Mengidentifikasi tipe data (numerik, kategorikal, ordinal, dll.)</p></li>
+<li><p>Memahami arti setiap atribut</p></li>
+<li><p>Melihat struktur dataset secara umum</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Tujuan Tahap Ini<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Memahami gambaran umum dataset</p></li>
+<li><p>Mengidentifikasi potensi masalah seperti inkonsistensi format</p></li>
+<li><p>Menentukan pendekatan analisis yang sesuai</p></li>
+</ul>
+</section>
+<section id="contoh-pada-dataset-iris">
+<h3>Contoh pada Dataset Iris<a class="headerlink" href="#contoh-pada-dataset-iris" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>150 baris data</p></li>
+<li><p>5 kolom</p></li>
+<li><p>4 variabel numerik:</p>
+<ul>
+<li><p>sepal_length</p></li>
+<li><p>sepal_width</p></li>
+<li><p>petal_length</p></li>
+<li><p>petal_width</p></li>
+</ul>
+</li>
+<li><p>1 variabel kategorikal:</p>
+<ul>
+<li><p>species</p></li>
+</ul>
+</li>
+</ul>
+<p>Setiap baris merepresentasikan satu sampel bunga iris dengan label spesiesnya.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="explore-data">
+<h2>3. Explore Data<a class="headerlink" href="#explore-data" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3>Pengertian<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Explore Data adalah tahap eksplorasi awal untuk menemukan pola, hubungan, dan karakteristik penting dalam dataset.</p>
+<p>Pada tahap ini analis mulai melakukan visualisasi dan analisis statistik sederhana untuk memahami perilaku data.</p>
+</section>
+<section id="id4">
+<h3>Kegiatan yang Dilakukan<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Membuat visualisasi data</p></li>
+<li><p>Melihat distribusi data</p></li>
+<li><p>Menganalisis hubungan antar variabel</p></li>
+<li><p>Mengidentifikasi outlier</p></li>
+<li><p>Menilai keseimbangan distribusi kelas</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Tujuan Tahap Ini<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Menemukan pola awal</p></li>
+<li><p>Mengidentifikasi fitur yang dominan</p></li>
+<li><p>Menentukan variabel yang berpengaruh</p></li>
+<li><p>Mendeteksi anomali dalam data</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="tools-yang-sering-digunakan-dalam-explore-data">
+<h1>Tools yang Sering Digunakan dalam Explore Data<a class="headerlink" href="#tools-yang-sering-digunakan-dalam-explore-data" title="Link to this heading">#</a></h1>
+<section id="scatter-plot">
+<h2>1. Scatter Plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk melihat hubungan antara dua variabel numerik.<br />
+Scatter plot membantu melihat:</p>
+<ul class="simple">
+<li><p>Pola penyebaran data</p></li>
+<li><p>Kelompok data (cluster)</p></li>
+<li><p>Hubungan linier atau non-linier</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="box-plot">
+<h2>2. Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk melihat distribusi data dan mendeteksi outlier.</p>
+<p>Box plot menunjukkan:</p>
+<ul class="simple">
+<li><p>Nilai minimum</p></li>
+<li><p>Kuartil bawah (Q1)</p></li>
+<li><p>Median</p></li>
+<li><p>Kuartil atas (Q3)</p></li>
+<li><p>Nilai maksimum</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="correlation">
+<h2>3. Correlation<a class="headerlink" href="#correlation" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk mengukur hubungan antar variabel numerik.</p>
+<p>Nilai korelasi berada dalam rentang -1 sampai +1:</p>
+<ul class="simple">
+<li><p>Mendekati +1 → hubungan positif kuat</p></li>
+<li><p>Mendekati 0 → hubungan lemah</p></li>
+<li><p>Mendekati -1 → hubungan negatif kuat</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="rank-feature-importance">
+<h2>4. Rank (Feature Importance)<a class="headerlink" href="#rank-feature-importance" title="Link to this heading">#</a></h2>
+<p>Digunakan untuk mengetahui tingkat kepentingan masing-masing variabel dalam mempengaruhi target atau kelas.</p>
+<p>Fitur dengan nilai rank tinggi biasanya:</p>
+<ul class="simple">
+<li><p>Lebih informatif</p></li>
+<li><p>Lebih berpengaruh dalam proses klasifikasi</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Data Understanding merupakan tahap fundamental dalam data mining yang berfungsi sebagai dasar dalam pengambilan keputusan analitis.</p>
+<p>Tahap ini memastikan bahwa:</p>
+<ul class="simple">
+<li><p>Data relevan dengan tujuan</p></li>
+<li><p>Struktur data dipahami dengan baik</p></li>
+<li><p>Tidak terdapat masalah kualitas data</p></li>
+<li><p>Pola awal dalam data dapat dikenali</p></li>
+</ul>
+<p>Semakin baik pemahaman terhadap data, semakin tinggi kemungkinan menghasilkan model yang akurat dan dapat dipercaya.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data-understanding.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Understanding</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HIMPUNAN — Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Memahami Data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#aktivitas-dalam-data-understanding">Aktivitas dalam Data Understanding</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collect-initial-data">1. Collect Initial Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kegiatan-yang-dilakukan">Kegiatan yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-tahap-ini">Tujuan Tahap Ini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describe-data">2. Describe Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hal-yang-dilakukan">Hal yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Tujuan Tahap Ini</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-pada-dataset-iris">Contoh pada Dataset Iris</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-data">3. Explore Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pengertian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Kegiatan yang Dilakukan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Tujuan Tahap Ini</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-yang-sering-digunakan-dalam-explore-data">Tools yang Sering Digunakan dalam Explore Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">1. Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">2. Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">3. Correlation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-feature-importance">4. Rank (Feature Importance)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
