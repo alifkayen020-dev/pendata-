@@ -4,6 +4,7 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+  - file: data-understanding
+  - file: memahami_Data
+  - file: data
+  - file: Pencarian_Mising_Value
