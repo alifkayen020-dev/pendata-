@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Pencarian_Mising_Value';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Penanganan Missing Value dan Normalisasi Data" href="preprocessing.html" />
     <link rel="prev" title="HIMPUNAN — Data" href="data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,6 +194,10 @@
 
 <li class="toctree-l1"><a class="reference internal" href="data.html">HIMPUNAN — Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing.html">Penanganan Missing Value dan Normalisasi Data</a></li>
+
+
+
 </ul>
 
     </div>
@@ -388,7 +393,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-dataset">Download Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-1-kolom-a-f-dataset-asli-data-mentah">Blok 1 (Kolom A-F): Dataset Asli (Data Mentah)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-2-kolom-g-h-hasil-normalisasi-min-max-untuk-atribut-numerik">Blok 2 (Kolom G-H): Hasil Normalisasi Min-Max untuk Atribut Numerik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-3-kolom-i-k-perhitungan-jarak-kategorikal">Blok 3 (Kolom I-K): Perhitungan Jarak Kategorikal</a></li>
@@ -418,12 +422,6 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="normalisasi-dan-pengisian-missing-value-dalam-penambangan-data">
 <h1>Normalisasi dan Pengisian Missing Value dalam Penambangan Data<a class="headerlink" href="#normalisasi-dan-pengisian-missing-value-dalam-penambangan-data" title="Link to this heading">#</a></h1>
 <p>Dalam pengolahan data untuk data mining, seringkali kita dihadapkan pada atribut dengan skala yang berbeda atau bahkan adanya data yang hilang (<em>missing value</em>). Bab ini akan menjelaskan secara rinci proses normalisasi data dengan metode Min-Max dan penanganan <em>missing value</em> menggunakan algoritma K-Nearest Neighbors (KNN). Pembagian tahapan disesuaikan dengan struktur perhitungan dataset Anda.</p>
-<hr class="docutils" />
-<section id="download-dataset">
-<h2>Download Dataset<a class="headerlink" href="#download-dataset" title="Link to this heading">#</a></h2>
-<p>Untuk mempermudah pemahaman, Anda dapat mengunduh dataset yang digunakan dalam bab ini:</p>
-</section>
-<hr class="docutils" />
 <section id="blok-1-kolom-a-f-dataset-asli-data-mentah">
 <h2>Blok 1 (Kolom A-F): Dataset Asli (Data Mentah)<a class="headerlink" href="#blok-1-kolom-a-f-dataset-asli-data-mentah" title="Link to this heading">#</a></h2>
 <p>Blok ini berisi rancangan data awal sebelum diproses. Format data tabular ini terdiri dari atribut-atribut dasar karyawan:</p>
@@ -631,6 +629,15 @@ Normalisasi Tahun K013 = <span class="math notranslate nohighlight">\(\frac{1993
         <p class="prev-next-title">HIMPUNAN — Data</p>
       </div>
     </a>
+    <a class="right-next"
+       href="preprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Penanganan Missing Value dan Normalisasi Data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -647,7 +654,6 @@ Normalisasi Tahun K013 = <span class="math notranslate nohighlight">\(\frac{1993
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-dataset">Download Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-1-kolom-a-f-dataset-asli-data-mentah">Blok 1 (Kolom A-F): Dataset Asli (Data Mentah)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-2-kolom-g-h-hasil-normalisasi-min-max-untuk-atribut-numerik">Blok 2 (Kolom G-H): Hasil Normalisasi Min-Max untuk Atribut Numerik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blok-3-kolom-i-k-perhitungan-jarak-kategorikal">Blok 3 (Kolom I-K): Perhitungan Jarak Kategorikal</a></li>

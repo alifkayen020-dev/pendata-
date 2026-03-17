@@ -2,14 +2,6 @@
 
 Dalam pengolahan data untuk data mining, seringkali kita dihadapkan pada atribut dengan skala yang berbeda atau bahkan adanya data yang hilang (_missing value_). Bab ini akan menjelaskan secara rinci proses normalisasi data dengan metode Min-Max dan penanganan _missing value_ menggunakan algoritma K-Nearest Neighbors (KNN). Pembagian tahapan disesuaikan dengan struktur perhitungan dataset Anda.
 
----
-
-## Download Dataset
-
-Untuk mempermudah pemahaman, Anda dapat mengunduh dataset yang digunakan dalam bab ini:
-
----
-
 ## Blok 1 (Kolom A-F): Dataset Asli (Data Mentah)
 
 Blok ini berisi rancangan data awal sebelum diproses. Format data tabular ini terdiri dari atribut-atribut dasar karyawan:

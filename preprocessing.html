@@ -1,0 +1,1242 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tahap Preproscessing &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'preprocessing';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Normalisasi dan Pengisian Missing Value dalam Penambangan Data" href="Pencarian_Mising_Value.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Penambangan Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">Data Understanding</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="memahami_Data.html">Memahami Data</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="data.html">HIMPUNAN — Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pencarian_Mising_Value.html">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tahap Preproscessing</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpreprocessing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/preprocessing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tahap Preproscessing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tahap Preproscessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penanganan-missing-value-dan-normalisasi-data">Penanganan Missing Value dan Normalisasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-konsep-dasar-wknn-imputation">A. Konsep Dasar WKNN Imputation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-mengapa-menggunakan-wknn">B. Mengapa Menggunakan WKNN?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-dengan-weighted-knn-wknn">🔹 1. Missing Value dengan Weighted KNN (WKNN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-wknn">Konsep WKNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-bobot">Rumus Bobot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-prediksi">Rumus Prediksi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-penyelesaian-manual">Langkah Penyelesaian Manual</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-euclidean-distance">1. Hitung Jarak (Euclidean Distance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-k-tetangga-terdekat">2. Ambil K Tetangga Terdekat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-bobot">3. Hitung Bobot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-estimasi">4. Hitung Estimasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-wknn">Implementasi Python WKNN</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-eksekusi-kode-wknn">Hasil Eksekusi Kode WKNN</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-euclidean-distance">1. Menghitung Jarak (Euclidean Distance)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-tetangga-terdekat-k-2">2. Mencari Tetangga Terdekat (<span class="math notranslate nohighlight">\(k=2\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-bobot-weights">3. Menghitung Bobot (Weights)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-terbobot-weighted-average">4. Menghitung Rata-rata Terbobot (Weighted Average)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">🔹 2. Normalisasi Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-normalisasi">Pengertian Normalisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-normalisasi">🔸 Jenis-Jenis Normalisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">1. Min-Max Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization-standardisasi">2. Z-Score Normalization (Standardisasi)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-scaling">3. Decimal Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Contoh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-sklearn-untuk-min-max-dan-z-score-normalization">🔸 Implementasi dengan Sklearn untuk min-max dan z-score Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-keseluruhan-normalisasi-min-max-dan-z-score-data-menggunakan-sklearn">🔸 Hasil keseluruhan Normalisasi min-max dan z-score Data Menggunakan Sklearn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-awal">Dataset Awal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-min-max-normalization">🔹 Hasil Min-Max Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-z-score-normalization">🔹 Hasil Z-Score Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">🔸 Kesimpulan :</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-manual-decimal-scaling-normalization">🔸 Implementation Manual Decimal Scaling Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-decimal-scaling">🔹 Hasil Decimal Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-awal-po">Dataset Awal (PO)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-normalisasi-decimal-scaling">Hasil Normalisasi Decimal Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔸 Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tahap-preproscessing">
+<h1>Tahap Preproscessing<a class="headerlink" href="#tahap-preproscessing" title="Link to this heading">#</a></h1>
+<section id="penanganan-missing-value-dan-normalisasi-data">
+<h2>Penanganan Missing Value dan Normalisasi Data<a class="headerlink" href="#penanganan-missing-value-dan-normalisasi-data" title="Link to this heading">#</a></h2>
+<p>Penanganan missing value (data yang hilang) menggunakan Weighted K-Nearest Neighbors (WKNN) adalah metode imputasi data (pengisian data kosong) yang lebih akurat dibandingkan KNN standar atau metode rata-rata (mean/median). Metode ini bekerja dengan mencari tetangga terdekat dari data yang hilang dan memberikan bobot (kepentingan) lebih tinggi kepada tetangga yang letaknya lebih dekat.
+Berikut adalah penjelasan rinci mengenai penggunaan WKNN untuk missing value:</p>
+<section id="a-konsep-dasar-wknn-imputation">
+<h3>A. Konsep Dasar WKNN Imputation<a class="headerlink" href="#a-konsep-dasar-wknn-imputation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>**KNN Imputation: Mengisi data kosong dengan rata-rata (jika numerik) atau modus (jika kategorikal) dari tetangga terdekat.</p></li>
+<li><p>**Weighted KNN (WKNN) Imputation: Memberikan bobot pada tetangga-tetangga tersebut. Tetangga yang jaraknya lebih dekat ke data yang missing akan memiliki pengaruh (bobot) lebih besar dalam menentukan nilai pengisi dibandingkan tetangga yang lebih jauh.</p></li>
+</ul>
+</section>
+<section id="b-mengapa-menggunakan-wknn">
+<h3>B. Mengapa Menggunakan WKNN?<a class="headerlink" href="#b-mengapa-menggunakan-wknn" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>**Ketepatan Lebih Tinggi: WKNN terbukti menghasilkan Root Mean Squared Error (RMSE) dan Mean Absolute Percentage Error (MAPE) yang lebih rendah, terutama saat missing data di atas 20%.</p></li>
+<li><p>**Mengurangi Bias: Karena tetangga terdekat diberi bobot lebih besar, nilai imputasi cenderung lebih akurat merepresentasikan karakteristik data yang sesungguhnya.</p></li>
+</ul>
+</section>
+<section id="dataset">
+<h3>Dataset<a class="headerlink" href="#dataset" title="Link to this heading">#</a></h3>
+<p>Berikut adalah dataset yang digunakan:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No</p></th>
+<th class="head"><p>IPK</p></th>
+<th class="head"><p>PO</p></th>
+<th class="head"><p>JML</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2000000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>3000000</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>2000000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2000000</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>3000000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>4</p></td>
+<td><p>4000000</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>3000000</p></td>
+<td><p>?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Data ke-7 memiliki missing value pada kolom <strong>JML</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="missing-value-dengan-weighted-knn-wknn">
+<h2>🔹 1. Missing Value dengan Weighted KNN (WKNN)<a class="headerlink" href="#missing-value-dengan-weighted-knn-wknn" title="Link to this heading">#</a></h2>
+<section id="konsep-wknn">
+<h3>Konsep WKNN<a class="headerlink" href="#konsep-wknn" title="Link to this heading">#</a></h3>
+<p>Semakin dekat jarak → semakin besar pengaruhnya.</p>
+</section>
+<section id="rumus-bobot">
+<h3>Rumus Bobot<a class="headerlink" href="#rumus-bobot" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+w_i = \frac{1}{d_i}
+\]</div>
+</section>
+<section id="rumus-prediksi">
+<h3>Rumus Prediksi<a class="headerlink" href="#rumus-prediksi" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+X = \frac{\sum (w_i \cdot x_i)}{\sum w_i}
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="langkah-penyelesaian-manual">
+<h2>Langkah Penyelesaian Manual<a class="headerlink" href="#langkah-penyelesaian-manual" title="Link to this heading">#</a></h2>
+<section id="hitung-jarak-euclidean-distance">
+<h3>1. Hitung Jarak (Euclidean Distance)<a class="headerlink" href="#hitung-jarak-euclidean-distance" title="Link to this heading">#</a></h3>
+<p>Gunakan atribut:</p>
+<ul class="simple">
+<li><p>IPK</p></li>
+<li><p>PO</p></li>
+</ul>
+<p>Contoh jarak data ke-7 dengan data ke-1:</p>
+<div class="math notranslate nohighlight">
+\[
+d = \sqrt{(2-2)^2 + (3000000-2000000)^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+d = \sqrt{0 + (1000000)^2} = 1000000
+\]</div>
+<p>Lakukan ke semua data.</p>
+</section>
+<hr class="docutils" />
+<section id="ambil-k-tetangga-terdekat">
+<h3>2. Ambil K Tetangga Terdekat<a class="headerlink" href="#ambil-k-tetangga-terdekat" title="Link to this heading">#</a></h3>
+<p>Misal gunakan <strong>K = 2</strong></p>
+<p>Misalnya hasil terdekat:</p>
+<ul class="simple">
+<li><p>Data 2 → JML = 3</p></li>
+<li><p>Data 5 → JML = 2</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="hitung-bobot">
+<h3>3. Hitung Bobot<a class="headerlink" href="#hitung-bobot" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+w_1 = \frac{1}{d_1}, \quad w_2 = \frac{1}{d_2}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="hitung-estimasi">
+<h3>4. Hitung Estimasi<a class="headerlink" href="#hitung-estimasi" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+JML = \frac{(w_1 \cdot 3) + (w_2 \cdot 2)}{w_1 + w_2}
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="implementasi-python-wknn">
+<h2>Implementasi Python WKNN<a class="headerlink" href="#implementasi-python-wknn" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4000000</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">euclidean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">wknn</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">distances</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">row</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">distances</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+
+    <span class="n">distances</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">neighbors</span> <span class="o">=</span> <span class="n">distances</span><span class="p">[:</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="n">weights</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="mf">1e-5</span>
+        <span class="n">weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span> <span class="o">*</span> <span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="n">hasil</span> <span class="o">=</span> <span class="n">wknn</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediksi JML:&quot;</span><span class="p">,</span> <span class="n">hasil</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hasil-eksekusi-kode-wknn">
+<h1>Hasil Eksekusi Kode WKNN<a class="headerlink" href="#hasil-eksekusi-kode-wknn" title="Link to this heading">#</a></h1>
+<p>Hasil dari eksekusi kode Python tersebut adalah:</p>
+<p><strong>Prediksi JML: 2.5</strong></p>
+<section id="menghitung-jarak-euclidean-distance">
+<h2>1. Menghitung Jarak (Euclidean Distance)<a class="headerlink" href="#menghitung-jarak-euclidean-distance" title="Link to this heading">#</a></h2>
+<p>Program menghitung jarak dari data <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">=</span> <span class="pre">[2,</span> <span class="pre">3000000]</span></code> ke setiap baris data (menggunakan 2 kolom pertama):</p>
+<ul class="simple">
+<li><p><strong>Baris 1:</strong> <span class="math notranslate nohighlight">\(\sqrt{(2-2)^2 + (2000000-3000000)^2} = 1000000\)</span> (Nilai = 2)</p></li>
+<li><p><strong>Baris 2:</strong> <span class="math notranslate nohighlight">\(\sqrt{(3-2)^2 + (3000000-3000000)^2} = \sqrt{1^2 + 0} = 1\)</span> (Nilai = 3)</p></li>
+<li><p><strong>Baris 3:</strong> <span class="math notranslate nohighlight">\(\sqrt{(4-2)^2 + (2000000-3000000)^2} \approx 1000000\)</span> (Nilai = 2)</p></li>
+<li><p><strong>Baris 4:</strong> <span class="math notranslate nohighlight">\(\sqrt{(2-2)^2 + (2000000-3000000)^2} = 1000000\)</span> (Nilai = 3)</p></li>
+<li><p><strong>Baris 5:</strong> <span class="math notranslate nohighlight">\(\sqrt{(3-2)^2 + (3000000-3000000)^2} = \sqrt{1^2 + 0} = 1\)</span> (Nilai = 2)</p></li>
+<li><p><strong>Baris 6:</strong> <span class="math notranslate nohighlight">\(\sqrt{(4-2)^2 + (4000000-3000000)^2} \approx 1000000\)</span> (Nilai = 3)</p></li>
+</ul>
+</section>
+<section id="mencari-tetangga-terdekat-k-2">
+<h2>2. Mencari Tetangga Terdekat (<span class="math notranslate nohighlight">\(k=2\)</span>)<a class="headerlink" href="#mencari-tetangga-terdekat-k-2" title="Link to this heading">#</a></h2>
+<p>Setelah jarak diurutkan dari yang terkecil, dua data terdekat (karena <code class="docutils literal notranslate"><span class="pre">k=2</span></code>) adalah:</p>
+<ol class="arabic simple">
+<li><p><strong>Baris 2:</strong> Jarak = 1, Nilai = 3</p></li>
+<li><p><strong>Baris 5:</strong> Jarak = 1, Nilai = 2</p></li>
+</ol>
+</section>
+<section id="menghitung-bobot-weights">
+<h2>3. Menghitung Bobot (Weights)<a class="headerlink" href="#menghitung-bobot-weights" title="Link to this heading">#</a></h2>
+<p>Bobot dihitung dengan rumus <span class="math notranslate nohighlight">\(\frac{1}{\text{jarak}}\)</span>:</p>
+<ul class="simple">
+<li><p>Bobot tetangga 1 = <span class="math notranslate nohighlight">\(\frac{1}{1} = 1\)</span></p></li>
+<li><p>Bobot tetangga 2 = <span class="math notranslate nohighlight">\(\frac{1}{1} = 1\)</span></p></li>
+</ul>
+</section>
+<section id="menghitung-rata-rata-terbobot-weighted-average">
+<h2>4. Menghitung Rata-rata Terbobot (Weighted Average)<a class="headerlink" href="#menghitung-rata-rata-terbobot-weighted-average" title="Link to this heading">#</a></h2>
+<p>Program kemudian menghitung hasil akhir dengan mengalikan nilai dengan bobotnya, lalu membaginya dengan total bobot:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\text{Hasil} = \frac{(1 \times 3) + (1 \times 2)}{1 + 1} = \frac{5}{2} = 2.5\)</span></p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Catatan tambahan: Dalam kode ini, perbedaan skala antara fitur pertama (satuan) dan fitur kedua (jutaan) sangat besar. Pada praktiknya, data seperti ini biasanya perlu dinormalisasi (misalnya dengan StandardScaler atau MinMaxScaler) agar fitur dengan angka besar (jutaan) tidak mendominasi perhitungan jarak.</em></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="normalisasi-data">
+<h1>🔹 2. Normalisasi Data<a class="headerlink" href="#normalisasi-data" title="Link to this heading">#</a></h1>
+<section id="pengertian-normalisasi">
+<h2>Pengertian Normalisasi<a class="headerlink" href="#pengertian-normalisasi" title="Link to this heading">#</a></h2>
+<p>Normalisasi adalah proses mengubah nilai data ke dalam skala tertentu agar setiap atribut memiliki rentang yang sebanding.</p>
+<p>Tujuan normalisasi:</p>
+<ul class="simple">
+<li><p>Menghindari dominasi fitur dengan nilai besar (misalnya PO dibanding IPK)</p></li>
+<li><p>Memperbaiki akurasi perhitungan jarak (terutama pada KNN)</p></li>
+<li><p>Mempercepat proses pembelajaran model</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="jenis-jenis-normalisasi">
+<h2>🔸 Jenis-Jenis Normalisasi<a class="headerlink" href="#jenis-jenis-normalisasi" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="min-max-normalization">
+<h3>1. Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Link to this heading">#</a></h3>
+<section id="penjelasan">
+<h4>Penjelasan<a class="headerlink" href="#penjelasan" title="Link to this heading">#</a></h4>
+<p>Metode ini mengubah nilai data ke dalam rentang <strong>0 sampai 1</strong>.<br />
+Nilai terkecil menjadi 0 dan nilai terbesar menjadi 1.</p>
+</section>
+<section id="rumus">
+<h4>Rumus<a class="headerlink" href="#rumus" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+X' = \frac{X - X_{min}}{X_{max} - X_{min}}
+\]</div>
+</section>
+<section id="contoh">
+<h4>Contoh<a class="headerlink" href="#contoh" title="Link to this heading">#</a></h4>
+<p>Data IPK: <strong>2, 3, 4</strong></p>
+<ul class="simple">
+<li><p>Min = 2</p></li>
+<li><p>Max = 4</p></li>
+</ul>
+<p>Hasil:</p>
+<ul class="simple">
+<li><p>2 → (2-2)/(4-2) = 0</p></li>
+<li><p>3 → (3-2)/(4-2) = 0.5</p></li>
+<li><p>4 → (4-2)/(4-2) = 1</p></li>
+</ul>
+<p>👉 Hasil akhir: <strong>[0, 0.5, 1]</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="z-score-normalization-standardisasi">
+<h3>2. Z-Score Normalization (Standardisasi)<a class="headerlink" href="#z-score-normalization-standardisasi" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h4>Penjelasan<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Metode ini mengubah data berdasarkan rata-rata (mean) dan standar deviasi.<br />
+Hasilnya memiliki:</p>
+<ul class="simple">
+<li><p>Mean = 0</p></li>
+<li><p>Standar deviasi = 1</p></li>
+</ul>
+<p>Digunakan saat data memiliki distribusi normal.</p>
+</section>
+<section id="id2">
+<h4>Rumus<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+X' = \frac{X - \mu}{\sigma}
+\]</div>
+</section>
+<section id="id3">
+<h4>Contoh<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<p>Data IPK: <strong>2, 3, 4</strong></p>
+<ul class="simple">
+<li><p>Mean (μ) = 3</p></li>
+<li><p>Std (σ) ≈ 0.816</p></li>
+</ul>
+<p>Hasil:</p>
+<ul class="simple">
+<li><p>2 → (2-3)/0.816 = -1.22</p></li>
+<li><p>3 → 0</p></li>
+<li><p>4 → 1.22</p></li>
+</ul>
+<p>👉 Hasil akhir: <strong>[-1.22, 0, 1.22]</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="decimal-scaling">
+<h3>3. Decimal Scaling<a class="headerlink" href="#decimal-scaling" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h4>Penjelasan<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<p>Metode ini membagi data dengan pangkat 10 sampai nilai berada di rentang kecil (biasanya &lt; 1).</p>
+<p>Cocok untuk data dengan nilai besar seperti gaji atau PO.</p>
+</section>
+<section id="id5">
+<h4>Rumus<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+X' = \frac{X}{10^j}
+\]</div>
+</section>
+<section id="id6">
+<h4>Contoh<a class="headerlink" href="#id6" title="Link to this heading">#</a></h4>
+<p>Data PO: <strong>2000000, 3000000, 4000000</strong></p>
+<ul class="simple">
+<li><p>Nilai terbesar = 4.000.000</p></li>
+<li><p>j = 7</p></li>
+</ul>
+<p>Hasil:</p>
+<ul class="simple">
+<li><p>2000000 → 0.2</p></li>
+<li><p>3000000 → 0.3</p></li>
+<li><p>4000000 → 0.4</p></li>
+</ul>
+<p>👉 Hasil akhir: <strong>[0.2, 0.3, 0.4]</strong></p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="implementasi-dengan-sklearn-untuk-min-max-dan-z-score-normalization">
+<h2>🔸 Implementasi dengan Sklearn untuk min-max dan z-score Normalization<a class="headerlink" href="#implementasi-dengan-sklearn-untuk-min-max-dan-z-score-normalization" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Dataset (IPK dan PO)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2000000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4000000</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1"># -------------------</span>
+<span class="c1"># Min-Max Normalization</span>
+<span class="c1"># -------------------</span>
+<span class="n">minmax</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">data_minmax</span> <span class="o">=</span> <span class="n">minmax</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># -------------------</span>
+<span class="c1"># Z-Score Normalization</span>
+<span class="c1"># -------------------</span>
+<span class="n">zscore</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">data_zscore</span> <span class="o">=</span> <span class="n">zscore</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hasil Min-Max:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_minmax</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hasil Z-Score:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_zscore</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</section>
+<section id="hasil-keseluruhan-normalisasi-min-max-dan-z-score-data-menggunakan-sklearn">
+<h2>🔸 Hasil keseluruhan Normalisasi min-max dan z-score Data Menggunakan Sklearn<a class="headerlink" href="#hasil-keseluruhan-normalisasi-min-max-dan-z-score-data-menggunakan-sklearn" title="Link to this heading">#</a></h2>
+<section id="dataset-awal">
+<h3>Dataset Awal<a class="headerlink" href="#dataset-awal" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>IPK</p></th>
+<th class="head"><p>PO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>2000000</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>3000000</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>4000000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hasil-min-max-normalization">
+<h2>🔹 Hasil Min-Max Normalization<a class="headerlink" href="#hasil-min-max-normalization" title="Link to this heading">#</a></h2>
+<p>Hasil normalisasi menggunakan <strong>MinMaxScaler</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>IPK (MinMax)</p></th>
+<th class="head"><p>PO (MinMax)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.5</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>1.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="id7">
+<h3>Penjelasan<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Nilai minimum diubah menjadi <strong>0</strong></p></li>
+<li><p>Nilai maksimum diubah menjadi <strong>1</strong></p></li>
+<li><p>Nilai lainnya berada di antara 0 dan 1</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hasil-z-score-normalization">
+<h2>🔹 Hasil Z-Score Normalization<a class="headerlink" href="#hasil-z-score-normalization" title="Link to this heading">#</a></h2>
+<p>Hasil normalisasi menggunakan <strong>StandardScaler</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>IPK (Z-Score)</p></th>
+<th class="head"><p>PO (Z-Score)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>-1.2247</p></td>
+<td><p>-1.2247</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.0000</p></td>
+<td><p>0.0000</p></td>
+</tr>
+<tr class="row-even"><td><p>1.2247</p></td>
+<td><p>1.2247</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="id8">
+<h3>Penjelasan<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Data dinormalisasi berdasarkan <strong>mean (rata-rata)</strong> dan <strong>standar deviasi</strong></p></li>
+<li><p>Nilai:</p>
+<ul>
+<li><p>Di bawah rata-rata → negatif</p></li>
+<li><p>Sama dengan rata-rata → 0</p></li>
+<li><p>Di atas rata-rata → positif</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>🔸 Kesimpulan :<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Min-Max Normalization</strong> menghasilkan data dalam rentang <strong>0–1</strong></p></li>
+<li><p><strong>Z-Score Normalization</strong> menghasilkan data dengan rata-rata <strong>0</strong></p></li>
+<li><p>Kedua metode menghasilkan nilai yang serupa antar kolom karena distribusi data IPK dan PO bersifat linear</p></li>
+</ul>
+</section>
+<section id="implementation-manual-decimal-scaling-normalization">
+<h2>🔸 Implementation Manual Decimal Scaling Normalization<a class="headerlink" href="#implementation-manual-decimal-scaling-normalization" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Data PO</span>
+<span class="n">data_po</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2000000</span><span class="p">,</span> <span class="mi">3000000</span><span class="p">,</span> <span class="mi">4000000</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">decimal_scaling</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">max_val</span><span class="p">)))</span>  <span class="c1"># jumlah digit</span>
+
+    <span class="k">return</span> <span class="n">data</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="n">j</span><span class="p">)</span>
+
+<span class="n">hasil_decimal</span> <span class="o">=</span> <span class="n">decimal_scaling</span><span class="p">(</span><span class="n">data_po</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Decimal Scaling:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hasil_decimal</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="hasil-decimal-scaling">
+<h2>🔹 Hasil Decimal Scaling<a class="headerlink" href="#hasil-decimal-scaling" title="Link to this heading">#</a></h2>
+<section id="dataset-awal-po">
+<h3>Dataset Awal (PO)<a class="headerlink" href="#dataset-awal-po" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PO</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2000000</p></td>
+</tr>
+<tr class="row-odd"><td><p>3000000</p></td>
+</tr>
+<tr class="row-even"><td><p>4000000</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="hasil-normalisasi-decimal-scaling">
+<h3>Hasil Normalisasi Decimal Scaling<a class="headerlink" href="#hasil-normalisasi-decimal-scaling" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>PO (Decimal Scaling)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.3</p></td>
+</tr>
+<tr class="row-even"><td><p>0.4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id9">
+<h3>Penjelasan<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Nilai terbesar = <strong>4.000.000</strong></p></li>
+<li><p>Jumlah digit = <strong>7</strong></p></li>
+<li><p>Maka digunakan pembagi <span class="math notranslate nohighlight">\(10^7\)</span></p></li>
+</ul>
+<p>Perhitungan:</p>
+<ul class="simple">
+<li><p>2000000 / 10^7 = 0.2</p></li>
+<li><p>3000000 / 10^7 = 0.3</p></li>
+<li><p>4000000 / 10^7 = 0.4</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id10">
+<h2>🔸 Kesimpulan<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Decimal Scaling menyederhanakan nilai besar menjadi lebih kecil</p></li>
+<li><p>Skala data menjadi lebih mudah diproses</p></li>
+<li><p>Metode ini menjaga proporsi antar data tetap sama</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Pencarian_Mising_Value.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tahap Preproscessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penanganan-missing-value-dan-normalisasi-data">Penanganan Missing Value dan Normalisasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-konsep-dasar-wknn-imputation">A. Konsep Dasar WKNN Imputation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-mengapa-menggunakan-wknn">B. Mengapa Menggunakan WKNN?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-dengan-weighted-knn-wknn">🔹 1. Missing Value dengan Weighted KNN (WKNN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-wknn">Konsep WKNN</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-bobot">Rumus Bobot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-prediksi">Rumus Prediksi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-penyelesaian-manual">Langkah Penyelesaian Manual</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-euclidean-distance">1. Hitung Jarak (Euclidean Distance)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-k-tetangga-terdekat">2. Ambil K Tetangga Terdekat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-bobot">3. Hitung Bobot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-estimasi">4. Hitung Estimasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-wknn">Implementasi Python WKNN</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-eksekusi-kode-wknn">Hasil Eksekusi Kode WKNN</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-jarak-euclidean-distance">1. Menghitung Jarak (Euclidean Distance)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-tetangga-terdekat-k-2">2. Mencari Tetangga Terdekat (<span class="math notranslate nohighlight">\(k=2\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-bobot-weights">3. Menghitung Bobot (Weights)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-rata-rata-terbobot-weighted-average">4. Menghitung Rata-rata Terbobot (Weighted Average)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data">🔹 2. Normalisasi Data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-normalisasi">Pengertian Normalisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-normalisasi">🔸 Jenis-Jenis Normalisasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">1. Min-Max Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization-standardisasi">2. Z-Score Normalization (Standardisasi)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Contoh</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decimal-scaling">3. Decimal Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Penjelasan</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Rumus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Contoh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-dengan-sklearn-untuk-min-max-dan-z-score-normalization">🔸 Implementasi dengan Sklearn untuk min-max dan z-score Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-keseluruhan-normalisasi-min-max-dan-z-score-data-menggunakan-sklearn">🔸 Hasil keseluruhan Normalisasi min-max dan z-score Data Menggunakan Sklearn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-awal">Dataset Awal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-min-max-normalization">🔹 Hasil Min-Max Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-z-score-normalization">🔹 Hasil Z-Score Normalization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">🔸 Kesimpulan :</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-manual-decimal-scaling-normalization">🔸 Implementation Manual Decimal Scaling Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-decimal-scaling">🔹 Hasil Decimal Scaling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-awal-po">Dataset Awal (PO)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-normalisasi-decimal-scaling">Hasil Normalisasi Decimal Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Penjelasan</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">🔸 Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
