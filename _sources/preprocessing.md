@@ -39,6 +39,7 @@ Data ke-7 memiliki missing value pada kolom **JML**.
 Normalisasi Data (Min-Max Scaling)*
 Karena variabel *IPK* (skala 2-4) dan *PO* (skala ratusan ribu) memiliki perbandingan numerik yang terlalu timpang, kita harus mengubahnya ke rentang [0, 1] menggunakan formula:
 * *Rumus Asli:* $X_{new} = \frac{X - X_{min}}{X_{max} - X_{min}}$
+
 * *Rumus Excel:* =(B2-MIN($B$2:$B$7))/(MAX($B$2:$B$7)-MIN($B$2:$B$7)) (Contoh formula untuk sel Normalisasi IPK - ID 1)
 
 Diketahui dari data referensi (ID 1-6):
@@ -59,12 +60,6 @@ Diketahui dari data referensi (ID 1-6):
 ### Konsep WKNN
 
 Semakin dekat jarak → semakin besar pengaruhnya.
-
-### Rumus Prediksi
-
-$$
-X = \frac{\sum (w_i \cdot x_i)}{\sum w_i}
-$$
 
 ---
 
