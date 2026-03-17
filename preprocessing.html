@@ -400,7 +400,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-dengan-weighted-knn-wknn">🔹 1. Missing Value dengan Weighted KNN (WKNN)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-wknn">Konsep WKNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-bobot">Rumus Bobot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-prediksi">Rumus Prediksi</a></li>
 </ul>
 </li>
@@ -408,7 +407,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-euclidean-distance">1. Hitung Jarak (Euclidean Distance)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-k-tetangga-terdekat">2. Ambil K Tetangga Terdekat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-bobot">3. Hitung Bobot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-estimasi">4. Hitung Estimasi</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-wknn">Implementasi Python WKNN</a></li>
@@ -556,16 +554,68 @@ Berikut adalah penjelasan rinci mengenai penggunaan WKNN untuk missing value:</p
 <hr class="docutils" />
 <section id="missing-value-dengan-weighted-knn-wknn">
 <h2>🔹 1. Missing Value dengan Weighted KNN (WKNN)<a class="headerlink" href="#missing-value-dengan-weighted-knn-wknn" title="Link to this heading">#</a></h2>
+<p>Normalisasi Data (Min-Max Scaling)*
+Karena variabel <em>IPK</em> (skala 2-4) dan <em>PO</em> (skala ratusan ribu) memiliki perbandingan numerik yang terlalu timpang, kita harus mengubahnya ke rentang [0, 1] menggunakan formula:</p>
+<ul class="simple">
+<li><p><em>Rumus Asli:</em> <span class="math notranslate nohighlight">\(X_{new} = \frac{X - X_{min}}{X_{max} - X_{min}}\)</span></p></li>
+<li><p><em>Rumus Excel:</em> =(B2-MIN(<span class="math notranslate nohighlight">\(B\)</span>2:<span class="math notranslate nohighlight">\(B\)</span>7))/(MAX(<span class="math notranslate nohighlight">\(B\)</span>2:<span class="math notranslate nohighlight">\(B\)</span>7)-MIN(<span class="math notranslate nohighlight">\(B\)</span>2:<span class="math notranslate nohighlight">\(B\)</span>7)) (Contoh formula untuk sel Normalisasi IPK - ID 1)</p></li>
+</ul>
+<p>Diketahui dari data referensi (ID 1-6):</p>
+<ul class="simple">
+<li><p>Min IPK = 2, Max IPK = 4</p></li>
+<li><p>Min PO = 200,000, Max PO = 400,000</p></li>
+</ul>
+<p><em>Tabel Hasil Normalisasi:</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Normalisasi IPK</p></th>
+<th class="head"><p>Normalisasi PO</p></th>
+<th class="head"><p>Nilai JML Asli</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>(2-2) / (4-2) = 0</p></td>
+<td><p>(200k-200k) / (400k-200k) = 0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>(3-2) / (4-2) = 0.5</p></td>
+<td><p>(300k-200k) / (400k-200k) = 0.5</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>(4-2) / (4-2) = 1</p></td>
+<td><p>(200k-200k) / (400k-200k) = 0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>(2-2) / (4-2) = 0</p></td>
+<td><p>(200k-200k) / (400k-200k) = 0</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>(3-2) / (4-2) = 0.5</p></td>
+<td><p>(300k-200k) / (400k-200k) = 0.5</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>(4-2) / (4-2) = 1</p></td>
+<td><p>(400k-200k) / (400k-200k) = 1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><em>7</em></p></td>
+<td><p>(2-2) / (4-2) = 0</p></td>
+<td><p>(300k-200k) / (400k-200k) = 0.5</p></td>
+<td><p><em>?</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <section id="konsep-wknn">
 <h3>Konsep WKNN<a class="headerlink" href="#konsep-wknn" title="Link to this heading">#</a></h3>
 <p>Semakin dekat jarak → semakin besar pengaruhnya.</p>
-</section>
-<section id="rumus-bobot">
-<h3>Rumus Bobot<a class="headerlink" href="#rumus-bobot" title="Link to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[
-w_i = \frac{1}{d_i}
-\]</div>
 </section>
 <section id="rumus-prediksi">
 <h3>Rumus Prediksi<a class="headerlink" href="#rumus-prediksi" title="Link to this heading">#</a></h3>
@@ -580,6 +630,8 @@ X = \frac{\sum (w_i \cdot x_i)}{\sum w_i}
 <h2>Langkah Penyelesaian Manual<a class="headerlink" href="#langkah-penyelesaian-manual" title="Link to this heading">#</a></h2>
 <section id="hitung-jarak-euclidean-distance">
 <h3>1. Hitung Jarak (Euclidean Distance)<a class="headerlink" href="#hitung-jarak-euclidean-distance" title="Link to this heading">#</a></h3>
+<p><em>Rumus Asli:</em> <span class="math notranslate nohighlight">\(d = \sqrt{(IPK_i - IPK_{target})^2 + (PO_i - PO_{target})^2}\)</span>
+<em>Rumus Excel:</em> =SQRT((F2-<span class="math notranslate nohighlight">\(F\)</span>8)^2 + (G2-<span class="math notranslate nohighlight">\(G\)</span>8)^2) (Dimana F dan G adalah kolom nilai normalisasi, dan baris 8 adalah rujukan baris target ID 7)</p>
 <p>Gunakan atribut:</p>
 <ul class="simple">
 <li><p>IPK</p></li>
@@ -595,6 +647,43 @@ d = \sqrt{(2-2)^2 + (3000000-2000000)^2}
 d = \sqrt{0 + (1000000)^2} = 1000000
 \]</div>
 <p>Lakukan ke semua data.</p>
+<p><em>Tabel Hasil Kalkulasi Jarak Per-ID:</em>
+(Terhadap ID 7 yang memiliki *<em>Norm IPK = 0</em> dan *Norm PO = 0.5)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Kalkulasi Selisih Kuadrat Jarak (d)</p></th>
+<th class="head"><p>Jarak (Euclidean) Akhir</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>1</em></p></td>
+<td><p>SQRT((0 - 0)^2 + (0 - 0.5)^2) = SQRT(0 + 0.25)</p></td>
+<td><p><em>0.5</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>2</em></p></td>
+<td><p>SQRT((0.5 - 0)^2 + (0.5 - 0.5)^2) = SQRT(0.25 + 0)</p></td>
+<td><p><em>0.5</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>3</em></p></td>
+<td><p>SQRT((1 - 0)^2 + (0 - 0.5)^2) = SQRT(1 + 0.25)</p></td>
+<td><p><em>1.118034</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>4</em></p></td>
+<td><p>SQRT((0 - 0)^2 + (0 - 0.5)^2) = SQRT(0 + 0.25)</p></td>
+<td><p><em>0.5</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>5</em></p></td>
+<td><p>SQRT((0.5 - 0)^2 + (0.5 - 0.5)^2) = SQRT(0.25 + 0)</p></td>
+<td><p><em>0.5</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>6</em></p></td>
+<td><p>SQRT((1 - 0)^2 + (1 - 0.5)^2) = SQRT(1 + 0.25)</p></td>
+<td><p><em>1.118034</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <hr class="docutils" />
 <section id="ambil-k-tetangga-terdekat">
@@ -611,16 +700,53 @@ d = \sqrt{0 + (1000000)^2} = 1000000
 <h3>3. Hitung Bobot<a class="headerlink" href="#hitung-bobot" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
-w_1 = \frac{1}{d_1}, \quad w_2 = \frac{1}{d_2}
+w_i = \frac{1}{d_i}
 \]</div>
-</section>
-<hr class="docutils" />
-<section id="hitung-estimasi">
-<h3>4. Hitung Estimasi<a class="headerlink" href="#hitung-estimasi" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
-JML = \frac{(w_1 \cdot 3) + (w_2 \cdot 2)}{w_1 + w_2}
+w_1 = \frac{1}{d_1}, \quad w_2 = \frac{1}{d_2}
 \]</div>
+<ul class="simple">
+<li><p>Rumus Asli:* <span class="math notranslate nohighlight">\(W = \frac{1}{d^2}\)</span></p></li>
+<li><p><em>Rumus Excel:</em> = 1 / (I2^2) (Diasumsikan kolom I merupakan sel kolom khusus ‘Jarak’)</p></li>
+</ul>
+<p><em>Tabel Hasil Perhitungan Bobot Tetangga:</em></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ID</p></th>
+<th class="head"><p>Perhitungan Bobot W = 1 / d^2</p></th>
+<th class="head"><p>Bobot Jarak (W)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>1</em></p></td>
+<td><p>1 / (0.5)^2 = 1 / 0.25</p></td>
+<td><p><em>4</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>2</em></p></td>
+<td><p>1 / (0.5)^2 = 1 / 0.25</p></td>
+<td><p><em>4</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>3</em></p></td>
+<td><p>1 / (1.118034)^2 = 1 / 1.25</p></td>
+<td><p><em>0.8</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>4</em></p></td>
+<td><p>1 / (0.5)^2 = 1 / 0.25</p></td>
+<td><p><em>4</em></p></td>
+</tr>
+<tr class="row-even"><td><p><em>5</em></p></td>
+<td><p>1 / (0.5)^2 = 1 / 0.25</p></td>
+<td><p><em>4</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>6</em></p></td>
+<td><p>1 / (1.118034)^2 = 1 / 1.25</p></td>
+<td><p><em>0.8</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
 </section>
 </section>
 <hr class="docutils" />
@@ -1116,7 +1242,6 @@ X' = \frac{X}{10^j}
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-value-dengan-weighted-knn-wknn">🔹 1. Missing Value dengan Weighted KNN (WKNN)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-wknn">Konsep WKNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-bobot">Rumus Bobot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-prediksi">Rumus Prediksi</a></li>
 </ul>
 </li>
@@ -1124,7 +1249,6 @@ X' = \frac{X}{10^j}
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-jarak-euclidean-distance">1. Hitung Jarak (Euclidean Distance)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-k-tetangga-terdekat">2. Ambil K Tetangga Terdekat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-bobot">3. Hitung Bobot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-estimasi">4. Hitung Estimasi</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-python-wknn">Implementasi Python WKNN</a></li>

@@ -32,18 +32,31 @@ Berikut adalah dataset yang digunakan:
 Data ke-7 memiliki missing value pada kolom **JML**.
 
 ---
-
 ## 🔹 1. Missing Value dengan Weighted KNN (WKNN)
+
+Normalisasi Data (Min-Max Scaling)*
+Karena variabel *IPK* (skala 2-4) dan *PO* (skala ratusan ribu) memiliki perbandingan numerik yang terlalu timpang, kita harus mengubahnya ke rentang [0, 1] menggunakan formula:
+* *Rumus Asli:* $X_{new} = \frac{X - X_{min}}{X_{max} - X_{min}}$
+* *Rumus Excel:* =(B2-MIN($B$2:$B$7))/(MAX($B$2:$B$7)-MIN($B$2:$B$7)) (Contoh formula untuk sel Normalisasi IPK - ID 1)
+
+Diketahui dari data referensi (ID 1-6):
+* Min IPK = 2, Max IPK = 4
+* Min PO = 200,000, Max PO = 400,000
+
+*Tabel Hasil Normalisasi:*
+| ID | Normalisasi IPK | Normalisasi PO | Nilai JML Asli |
+|---|---|---|---|
+| 1 | (2-2) / (4-2) = 0 | (200k-200k) / (400k-200k) = 0 | 2 |
+| 2 | (3-2) / (4-2) = 0.5 | (300k-200k) / (400k-200k) = 0.5 | 3 |
+| 3 | (4-2) / (4-2) = 1 | (200k-200k) / (400k-200k) = 0 | 2 |
+| 4 | (2-2) / (4-2) = 0 | (200k-200k) / (400k-200k) = 0 | 3 |
+| 5 | (3-2) / (4-2) = 0.5 | (300k-200k) / (400k-200k) = 0.5 | 2 |
+| 6 | (4-2) / (4-2) = 1 | (400k-200k) / (400k-200k) = 1 | 3 |
+| *7* | (2-2) / (4-2) = 0 | (300k-200k) / (400k-200k) = 0.5 | *?* |
 
 ### Konsep WKNN
 
 Semakin dekat jarak → semakin besar pengaruhnya.
-
-### Rumus Bobot
-
-$$
-w_i = \frac{1}{d_i}
-$$
 
 ### Rumus Prediksi
 
@@ -56,6 +69,9 @@ $$
 ## Langkah Penyelesaian Manual
 
 ### 1. Hitung Jarak (Euclidean Distance)
+
+*Rumus Asli:* $d = \sqrt{(IPK_i - IPK_{target})^2 + (PO_i - PO_{target})^2}$
+*Rumus Excel:* =SQRT((F2-$F$8)^2 + (G2-$G$8)^2) (Dimana F dan G adalah kolom nilai normalisasi, dan baris 8 adalah rujukan baris target ID 7)
 
 Gunakan atribut:
 
@@ -74,6 +90,19 @@ $$
 
 Lakukan ke semua data.
 
+
+*Tabel Hasil Kalkulasi Jarak Per-ID:*
+(Terhadap ID 7 yang memiliki **Norm IPK = 0* dan *Norm PO = 0.5)
+
+| ID | Kalkulasi Selisih Kuadrat Jarak (d) | Jarak (Euclidean) Akhir |
+|---|---|---|
+| *1* | SQRT((0 - 0)^2 + (0 - 0.5)^2) = SQRT(0 + 0.25) | *0.5* |
+| *2* | SQRT((0.5 - 0)^2 + (0.5 - 0.5)^2) = SQRT(0.25 + 0) | *0.5* |
+| *3* | SQRT((1 - 0)^2 + (0 - 0.5)^2) = SQRT(1 + 0.25) | *1.118034* |
+| *4* | SQRT((0 - 0)^2 + (0 - 0.5)^2) = SQRT(0 + 0.25) | *0.5* |
+| *5* | SQRT((0.5 - 0)^2 + (0.5 - 0.5)^2) = SQRT(0.25 + 0) | *0.5* |
+| *6* | SQRT((1 - 0)^2 + (1 - 0.5)^2) = SQRT(1 + 0.25) | *1.118034* |
+
 ---
 
 ### 2. Ambil K Tetangga Terdekat
@@ -89,17 +118,29 @@ Misalnya hasil terdekat:
 
 ### 3. Hitung Bobot
 
+
+$$
+w_i = \frac{1}{d_i}
+$$
+
 $$
 w_1 = \frac{1}{d_1}, \quad w_2 = \frac{1}{d_2}
 $$
 
+* Rumus Asli:* $W = \frac{1}{d^2}$
+* *Rumus Excel:* = 1 / (I2^2) (Diasumsikan kolom I merupakan sel kolom khusus 'Jarak')
+
+*Tabel Hasil Perhitungan Bobot Tetangga:*
+
+| ID | Perhitungan Bobot W = 1 / d^2 | Bobot Jarak (W) |
+|---|---|---|
+| *1* | 1 / (0.5)^2 = 1 / 0.25 | *4* |
+| *2* | 1 / (0.5)^2 = 1 / 0.25 | *4* |
+| *3* | 1 / (1.118034)^2 = 1 / 1.25 | *0.8* |
+| *4* | 1 / (0.5)^2 = 1 / 0.25 | *4* |
+| *5* | 1 / (0.5)^2 = 1 / 0.25 | *4* |
+| *6* | 1 / (1.118034)^2 = 1 / 1.25 | *0.8* |
 ---
-
-### 4. Hitung Estimasi
-
-$$
-JML = \frac{(w_1 \cdot 3) + (w_2 \cdot 2)}{w_1 + w_2}
-$$
 
 ---
 
