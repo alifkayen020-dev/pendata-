@@ -1,4 +1,6 @@
-# Tahap Preproscessing
+# Mising Values Inputation
+
+Missing Values Imputation adalah teknik dalam analisis data dan machine learning untuk mengisi nilai-nilai yang hilang atau kosong dalam sebuah dataset menggunakan estimasi atau nilai pengganti yang masuk akal. Tujuannya adalah untuk mempertahankan informasi, mengurangi bias, dan menghindari kegagalan algoritma saat analisis.
 
 ## Penanganan Missing Value dan Normalisasi Data
 
