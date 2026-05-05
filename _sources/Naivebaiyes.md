@@ -69,7 +69,7 @@ Dataset ini **perfectly balanced** — tidak ada masalah class imbalance.
 
 ### 3.1 Distribusi Fitur per Kelas
 
-![EDA — Histogram dan Boxplot](fig1_eda.png)
+![EDA — Histogram dan Boxplot]![Scatter Plot](images/fig1_eda.png)
 
 **Temuan:**
 - **Iris-setosa** memiliki nilai `petal_length` dan `petal_width` yang jauh lebih kecil dibanding dua kelas lainnya → **sangat mudah dipisahkan**
@@ -78,8 +78,7 @@ Dataset ini **perfectly balanced** — tidak ada masalah class imbalance.
 
 ### 3.2 Korelasi Fitur
 
-![Correlation & Scatter](fig2_corr.png)
-
+![Correlation & Scatter]![Scatter Plot](images/fig2_corr.png)
 **Temuan Korelasi:**
 - `petal_length` dan `petal_width` berkorelasi sangat tinggi (**r = 0.96**) → fitur paling informatif
 - `sepal_length` berkorelasi moderat dengan petal features
@@ -201,7 +200,7 @@ Kelas dengan probabilitas posterior tertinggi dipilih sebagai prediksi.
 
 ### 7.1 Hasil Prediksi pada Test Set
 
-![Model Evaluation](fig3_results.png)
+![Model Evaluation]![Scatter Plot](images/fig3_results.png)
 
 ### 7.2 Confusion Matrix
 
@@ -269,7 +268,7 @@ cv_scores = cross_val_score(gnb, X, y, cv=cv, scoring='accuracy')
 
 ## 9. Visualisasi Decision Boundary
 
-![Decision Boundary & Likelihood](fig4_boundary.png)
+![Decision Boundary & Likelihood]!![Scatter Plot](images/fig4_boundary.png)
 
 ### 9.1 Decision Boundary (Petal Features)
 
