@@ -38,7 +38,7 @@ df['Label'] = np.where(
 
 ## 2. Penambahan Missing Value
 
-Untuk mensimulasikan data dunia nyata, sekitar 5% data di dataset diubah menjadi `np.nan` (Not a Number) secara acak.
+Untuk mensimulasikan data, sekitar 5% data di dataset diubah menjadi `np.nan` (Not a Number) secara acak.
 
 ```python
 for col in df.columns:

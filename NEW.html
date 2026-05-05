@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'NEW';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analisis Data IRIS dengan Gaussian Naive Bayes Classifier" href="Naivebaiyes.html" />
     <link rel="prev" title="Mising Values Inputation" href="preprocessing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -195,6 +196,7 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS-PENDATA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Naivebaiyes.html">Analisis Data IRIS dengan Gaussian Naive Bayes Classifier</a></li>
 </ul>
 
     </div>
@@ -455,7 +457,7 @@ document.write(`
 </section>
 <section id="penambahan-missing-value">
 <h2>2. Penambahan Missing Value<a class="headerlink" href="#penambahan-missing-value" title="Link to this heading">#</a></h2>
-<p>Untuk mensimulasikan data dunia nyata, sekitar 5% data di dataset diubah menjadi <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (Not a Number) secara acak.</p>
+<p>Untuk mensimulasikan data, sekitar 5% data di dataset diubah menjadi <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> (Not a Number) secara acak.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
     <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 </pre></div>
@@ -597,6 +599,15 @@ F1-Score : 0.7075
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Mising Values Inputation</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Naivebaiyes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analisis Data IRIS dengan Gaussian Naive Bayes Classifier</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
