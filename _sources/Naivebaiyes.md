@@ -7,23 +7,6 @@
 
 ---
 
-## Daftar Isi
-
-1. [Pendahuluan](#1-pendahuluan)
-2. [Dataset](#2-dataset)
-3. [Eksplorasi Data (EDA)](#3-eksplorasi-data-eda)
-4. [Preprocessing](#4-preprocessing)
-5. [Model Naive Bayes](#5-model-naive-bayes)
-6. [Pelatihan Model](#6-pelatihan-model)
-7. [Evaluasi Model](#7-evaluasi-model)
-8. [Cross Validation](#8-cross-validation)
-9. [Visualisasi Decision Boundary](#9-visualisasi-decision-boundary)
-10. [Contoh Prediksi](#10-contoh-prediksi)
-11. [Kesimpulan](#11-kesimpulan)
-12. [Referensi](#12-referensi)
-
----
-
 ## 1. Pendahuluan
 
 Proyek ini mengimplementasikan **Gaussian Naive Bayes Classifier** menggunakan Python dan scikit-learn untuk mengklasifikasikan spesies bunga iris. Naive Bayes merupakan algoritma klasifikasi probabilistik berbasis **Teorema Bayes** yang mengasumsikan independensi antar fitur (*naive assumption*).
@@ -388,10 +371,10 @@ python naive_bayes_iris.py
 ```
 
 **File yang dihasilkan:**
-- `fig1_eda.png` — Histogram dan Boxplot per fitur
-- `fig2_corr.png` — Heatmap korelasi dan scatter plot
-- `fig3_results.png` — Confusion matrix, per-class metrics, cross validation
-- `fig4_boundary.png` — Decision boundary, prior, dan likelihood
+- `images/fig1_eda.png` — Histogram dan Boxplot per fitur
+- `images/fig2_corr.png` — Heatmap korelasi dan scatter plot
+- `images/fig3_results.png` — Confusion matrix, per-class metrics, cross validation
+- `images/fig4_boundary.png` — Decision boundary, prior, dan likelihood
 
 ---
 
