@@ -6,13 +6,15 @@
 
 ##  Pengertian Decision Tree
 
-Decision tree (pohon keputusan) adalah algoritma supervised learning berbentuk struktur pohon yang memodelkan serangkaian keputusan dan kemungkinan hasilnya untuk tujuan klasifikasi atau regresi. Alat ini memecah data kompleks menjadi himpunan bagian lebih kecil, memudahkan visualisasi, analisis risiko, dan pengambilan keputusan berdasarkan aturan jika-maka (if-then)
 
-Algoritma ini bekerja dengan membentuk struktur seperti pohon, di mana setiap cabang merepresentasikan keputusan berdasarkan kondisi tertentu.
 
 ---
 
-## Komponen Utama Decision Tree
+## Decision Tree
+
+Decision tree (pohon keputusan) adalah algoritma supervised learning berbentuk struktur pohon yang memodelkan serangkaian keputusan dan kemungkinan hasilnya untuk tujuan klasifikasi atau regresi. Alat ini memecah data kompleks menjadi himpunan bagian lebih kecil, memudahkan visualisasi, analisis risiko, dan pengambilan keputusan berdasarkan aturan jika-maka (if-then)
+
+Algoritma ini bekerja dengan membentuk struktur seperti pohon, di mana setiap cabang merepresentasikan keputusan berdasarkan kondisi tertentu.
 
 Dalam Decision Tree, terdapat beberapa komponen utama:
 
