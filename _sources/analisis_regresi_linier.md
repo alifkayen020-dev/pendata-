@@ -173,7 +173,7 @@ print("β₁ =", beta[1])  # slope
 
 ## 5. Cara Alternatif: Rumus Manual (Perhitungan Langsung)
 
-```python
+```text
 n    = 7
 x̄   = Σxᵢ/n  = 26/7  = 3.7143
 ȳ   = ΣYᵢ/n  = 28/7  = 4.0000
