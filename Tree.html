@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Penambangan Data &#8212; My sample book</title>
+    <title>Decision Tree &#8212; My sample book</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tree';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Understanding" href="data-understanding.html" />
+    <link rel="next" title="Analisis Regresi Linier Sederhana" href="analisis_regresi_linier.html" />
+    <link rel="prev" title="Normalisasi dan Pengisian Missing Value dalam Penambangan Data" href="Pencarian_Mising_Value.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,8 +129,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -148,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -168,13 +167,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to Penambangan Data
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="data-understanding.html">Data Understanding</a></li>
 
 
@@ -189,7 +188,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Naivebaiyes.html">Analisis Data IRIS dengan Gaussian Naive Bayes Classifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NEW.html">UTS-PENDATA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Pencarian_Mising_Value.html">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tree.html">Decision Tree</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analisis_regresi_linier.html">Analisis Regresi Linier Sederhana</a></li>
 </ul>
 
@@ -262,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTree.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -292,7 +291,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Tree.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -363,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -374,11 +375,36 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to Penambangan Data</h1>
+    <h1>Decision Tree</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-decision-tree">Pengertian Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-dalam-decision-tree">Metode dalam Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-decision-tree-di-knime">Langkah-langkah Decision Tree di KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">1. Import Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-data">2. Partitioning Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-model">3. Membuat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-decision-tree">4. Menampilkan Decision Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-data">5. Prediksi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gunakan-node-decision-tree-predictor-untuk-menguji-model-menggunakan-data-testing-scatter-plot">Gunakan node <strong>Decision Tree Predictor</strong> untuk menguji model menggunakan data testing.
+</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model">6. Evaluasi Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,29 +414,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-penambangan-data">
-<h1>Welcome to Penambangan Data<a class="headerlink" href="#welcome-to-penambangan-data" title="Permalink to this heading">#</a></h1>
-<p>Di era informasi saat ini, volume data berkembang dengan kecepatan yang luar biasa. Kemampuan untuk menggali, menganalisis, dan mengekstraksi pengetahuan berharga dari tumpukan data mentah telah menjadi kebutuhan esensial di berbagai sektor. Buku ini disusun dengan tujuan untuk memberikan panduan yang terstruktur dan komprehensif mengenai konsep dasar, algoritma, serta penerapan praktis dari penambangan data (data mining).</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html">Data Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html#data-preparation">7. Data Preparation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html#modeling">8. Modeling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html#evaluation">9. Evaluation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html#kesimpulan-akhir">10. Kesimpulan Akhir</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-understanding.html#kesimpulan-umum">Kesimpulan Umum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memahami_Data.html">Memahami Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memahami_Data.html#aktivitas-dalam-data-understanding">Aktivitas dalam Data Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memahami_Data.html#tools-yang-sering-digunakan-dalam-explore-data">Tools yang Sering Digunakan dalam Explore Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="memahami_Data.html#kesimpulan">Kesimpulan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data.html">HIMPUNAN — Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Naivebaiyes.html">Analisis Data IRIS dengan Gaussian Naive Bayes Classifier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NEW.html">UTS-PENDATA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Pencarian_Mising_Value.html">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tree.html">Decision Tree</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analisis_regresi_linier.html">Analisis Regresi Linier Sederhana</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="decision-tree">
+<h1>Decision Tree<a class="headerlink" href="#decision-tree" title="Permalink to this heading">#</a></h1>
+<section id="pengertian-decision-tree">
+<h2>Pengertian Decision Tree<a class="headerlink" href="#pengertian-decision-tree" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>Decision Tree<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>Decision tree (pohon keputusan) adalah algoritma supervised learning berbentuk struktur pohon yang memodelkan serangkaian keputusan dan kemungkinan hasilnya untuk tujuan klasifikasi atau regresi. Alat ini memecah data kompleks menjadi himpunan bagian lebih kecil, memudahkan visualisasi, analisis risiko, dan pengambilan keputusan berdasarkan aturan jika-maka (if-then)</p>
+<p>Algoritma ini bekerja dengan membentuk struktur seperti pohon, di mana setiap cabang merepresentasikan keputusan berdasarkan kondisi tertentu.</p>
+<p>Dalam Decision Tree, terdapat beberapa komponen utama:</p>
+<ul class="simple">
+<li><p><strong>Root Node</strong>
+Node awal yang menjadi dasar pembentukan pohon.</p></li>
+<li><p><strong>Decision Node</strong>
+Node yang berisi kondisi atau aturan untuk membagi data.</p></li>
+<li><p><strong>Leaf Node</strong>
+Node akhir yang berisi hasil keputusan atau kelas.</p></li>
 </ul>
-</div>
+</section>
+<hr class="docutils" />
+<section id="metode-dalam-decision-tree">
+<h2>Metode dalam Decision Tree<a class="headerlink" href="#metode-dalam-decision-tree" title="Permalink to this heading">#</a></h2>
+<p>Decision Tree biasanya menggunakan metode berikut untuk menentukan pembagian data terbaik:</p>
+<ul class="simple">
+<li><p><strong>Gini Index</strong></p></li>
+<li><p><strong>Information Gain</strong></p></li>
+</ul>
+<p>Metode ini digunakan untuk memilih atribut terbaik dalam melakukan <em>split</em> data pada setiap node.</p>
+</section>
+<hr class="docutils" />
+<section id="langkah-langkah-decision-tree-di-knime">
+<h2>Langkah-langkah Decision Tree di KNIME<a class="headerlink" href="#langkah-langkah-decision-tree-di-knime" title="Permalink to this heading">#</a></h2>
+<p>Berikut langkah-langkah membuat dan menampilkan Decision Tree menggunakan <strong>KNIME Analytics Platform</strong>:</p>
+<section id="import-data">
+<h3>1. Import Data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h3>
+<p><img alt="Scatter Plot" src="images/image.png" /></p>
+<p>Gunakan node seperti:</p>
+<ul class="simple">
+<li><p>CSV Reader</p></li>
+<li><p>Excel Reader</p></li>
+</ul>
+<p>Untuk memasukkan dataset ke dalam KNIME.</p>
+</section>
+<hr class="docutils" />
+<section id="partitioning-data">
+<h3>2. Partitioning Data<a class="headerlink" href="#partitioning-data" title="Permalink to this heading">#</a></h3>
+<p>Gunakan node <strong>Partitioning</strong> untuk membagi data menjadi:</p>
+<ul class="simple">
+<li><p><strong>Data Training</strong> (90%)</p></li>
+<li><p><strong>Data Testing</strong> (10%)</p></li>
+</ul>
+<p><img alt="Scatter Plot" src="images/image2.png" /></p>
+</section>
+<hr class="docutils" />
+<section id="membuat-model">
+<h3>3. Membuat Model<a class="headerlink" href="#membuat-model" title="Permalink to this heading">#</a></h3>
+<p>Tambahkan node <strong>Decision Tree Learner</strong>, lalu:</p>
+<ul class="simple">
+<li><p>Pilih kolom target (kelas)</p></li>
+<li><p>Pilih metode (Gini Index / Information Gain)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="menampilkan-decision-tree">
+<h3>4. Menampilkan Decision Tree<a class="headerlink" href="#menampilkan-decision-tree" title="Permalink to this heading">#</a></h3>
+<p>Setelah node dijalankan:</p>
+<ul class="simple">
+<li><p>Klik kanan pada node <strong>Decision Tree Learner</strong></p></li>
+<li><p>Pilih <strong>“View: Decision Tree”</strong>
+<img alt="Scatter Plot" src="images/image3.png" /></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="prediksi-data">
+<h3>5. Prediksi Data<a class="headerlink" href="#prediksi-data" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="gunakan-node-decision-tree-predictor-untuk-menguji-model-menggunakan-data-testing-scatter-plot">
+<h2>Gunakan node <strong>Decision Tree Predictor</strong> untuk menguji model menggunakan data testing.
+<img alt="Scatter Plot" src="images/image4.png" /><a class="headerlink" href="#gunakan-node-decision-tree-predictor-untuk-menguji-model-menggunakan-data-testing-scatter-plot" title="Permalink to this heading">#</a></h2>
+<section id="evaluasi-model">
+<h3>6. Evaluasi Model<a class="headerlink" href="#evaluasi-model" title="Permalink to this heading">#</a></h3>
+<p>Gunakan node <strong>Scorer</strong> untuk melihat hasil evaluasi, seperti:</p>
+<ul class="simple">
+<li><p>Accuracy</p></li>
+<li><p>Precision</p></li>
+<li><p>Recall</p></li>
+</ul>
+</section>
+</section>
+<section id="scatter-plot">
+<h2><img alt="Scatter Plot" src="images/image5.png" /><a class="headerlink" href="#scatter-plot" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
+<p>Decision Tree merupakan metode yang mudah dipahami karena berbentuk struktur pohon dengan aturan keputusan yang jelas.</p>
+<p>Dengan menggunakan KNIME, proses pembuatan model menjadi lebih sederhana karena:</p>
+<ul class="simple">
+<li><p>Tidak memerlukan coding</p></li>
+<li><p>Hanya perlu menyusun workflow</p></li>
+</ul>
+<hr class="docutils" />
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -443,12 +550,21 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Pencarian_Mising_Value.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="data-understanding.html"
+       href="analisis_regresi_linier.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Understanding</p>
+        <p class="prev-next-title">Analisis Regresi Linier Sederhana</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -458,6 +574,38 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-decision-tree">Pengertian Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-dalam-decision-tree">Metode dalam Decision Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-decision-tree-di-knime">Langkah-langkah Decision Tree di KNIME</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">1. Import Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partitioning-data">2. Partitioning Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-model">3. Membuat Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-decision-tree">4. Menampilkan Decision Tree</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-data">5. Prediksi Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gunakan-node-decision-tree-predictor-untuk-menguji-model-menggunakan-data-testing-scatter-plot">Gunakan node <strong>Decision Tree Predictor</strong> untuk menguji model menggunakan data testing.
+</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-model">6. Evaluasi Model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot"></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
