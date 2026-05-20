@@ -7,5 +7,8 @@ chapters:
   - file: data-understanding
   - file: memahami_Data
   - file: data
+  - file: Naivebaiyes
+  - file: NEW
   - file: Pencarian_Mising_Value
+  - file: Tree
   - file: analisis_regresi_linier
