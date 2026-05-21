@@ -1,6 +1,6 @@
 ---
-
-## title: Decision Tree
+title: Decision Tree
+---
 
 #  Decision Tree
 
