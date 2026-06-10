@@ -1,0 +1,20 @@
+# Build output
+_build/
+
+# Jupyter cache
+.jupyter_cache/
+
+# Temp files
+temp/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Environment
+.env
+.venv/
+venv/
