@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Forecaster Explainability: Feature Importance, SHAP Values, dan Partial Dependence Plots &#8212; My sample book</title>
+    <title>Forecaster Explainability: &#8212; My sample book</title>
   
   
   
@@ -193,7 +193,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Forecaster Explainability: Feature Importance, SHAP Values, dan Partial Dependence Plots</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Forecaster Explainability:</a></li>
+
 </ul>
 
     </div>
@@ -379,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Forecaster Explainability: Feature Importance, SHAP Values, dan Partial Dependence Plots</h1>
+    <h1>Forecaster Explainability:</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,13 +390,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jawaban-pertanyaan">JAWABAN PERTANYAAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Forecaster Explainability:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance-shap-values-dan-partial-dependence-plots">Feature Importance, SHAP Values, dan Partial Dependence Plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1-analisa-prediksi-tentang-apa">Pertanyaan 1: Analisa Prediksi Tentang Apa?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya">Pertanyaan 2: Bagaimana Bentuk Data Training-nya?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3-apa-itu-lag">Pertanyaan 3: Apa itu Lag?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4-proses-analisis-yang-dilakukan">Pertanyaan 4: Proses Analisis yang Dilakukan</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-prediksi-permintaan-listrik-harian-di-victoria-australia">Analisis Prediksi Permintaan Listrik Harian di Victoria, Australia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya">Pertanyaan 2: Bagaimana Bentuk Data Training-nya?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3-apa-itu-lag">Pertanyaan 3: Apa itu Lag?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4-proses-analisis-yang-dilakukan">Pertanyaan 4: Proses Analisis yang Dilakukan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-1-instalasi-library-dan-import-data">Bagian 1: Instalasi Library dan Import Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-dan-import-library">1.1 Instalasi dan Import Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unduh-dan-eksplorasi-dataset">1.2 Unduh dan Eksplorasi Dataset</a></li>
@@ -448,6 +453,9 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -458,28 +466,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="forecaster-explainability-feature-importance-shap-values-dan-partial-dependence-plots">
-<h1>Forecaster Explainability: Feature Importance, SHAP Values, dan Partial Dependence Plots<a class="headerlink" href="#forecaster-explainability-feature-importance-shap-values-dan-partial-dependence-plots" title="Permalink to this heading">#</a></h1>
-<p>Notebook ini merupakan reproduksi dan pengembangan dari <a class="reference external" href="https://skforecast.org/0.15.1/user_guides/explainability.html">skforecast explainability guide</a> dengan tambahan penjelasan mendalam dan jawaban pertanyaan tugas.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="forecaster-explainability">
+<h1>Forecaster Explainability:<a class="headerlink" href="#forecaster-explainability" title="Permalink to this heading">#</a></h1>
+<section id="feature-importance-shap-values-dan-partial-dependence-plots">
+<h2>Feature Importance, SHAP Values, dan Partial Dependence Plots<a class="headerlink" href="#feature-importance-shap-values-dan-partial-dependence-plots" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://skforecast.org/0.15.1/user_guides/explainability.html">skforecast explainability guide</a></p>
 <hr class="docutils" />
-<section id="jawaban-pertanyaan">
-<h2>JAWABAN PERTANYAAN<a class="headerlink" href="#jawaban-pertanyaan" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="pertanyaan-1-analisa-prediksi-tentang-apa">
 <h3>Pertanyaan 1: Analisa Prediksi Tentang Apa?<a class="headerlink" href="#pertanyaan-1-analisa-prediksi-tentang-apa" title="Permalink to this heading">#</a></h3>
-<p>Analisis dalam notebook ini adalah prediksi <strong>permintaan listrik harian (Electricity Demand)</strong> di negara bagian Victoria, Australia.</p>
-<p><strong>Detail Lengkap konteks:</strong></p>
-<ul class="simple">
-<li><p><strong>Dataset:</strong> <code class="docutils literal notranslate"><span class="pre">vic_electricity</span></code> — data penggunaan listrik setiap 30 menit dari jaringan listrik Victoria, Australia.</p></li>
-<li><p><strong>Target Perkiraan:</strong> Kolom <code class="docutils literal notranslate"><span class="pre">Demand</span></code> (total permintaan listrik dalam satuan MWh di tiap hari, hasil agregasi dari data 30-menit).</p></li>
-<li><p><strong>Fitur tambahan (exogenous):</strong> Kolom <code class="docutils literal notranslate"><span class="pre">Temperature</span></code> (rata-rata suhu harian dalam °C).</p></li>
-<li><p><strong>Tujuan utama:</strong> Bukan hanya perkiraan, tetapi <strong>menjelaskan</strong> mengapa model memberikan perkiraan tertentu — fitur mana yang paling berpengaruh.</p></li>
-<li><p><strong>Relevansi:</strong> Permintaan listrik sangat dipengaruhi cuaca (panas = lebih banyak AC, dingin = lebih banyak pemanas), sehingga suhu menjadi fitur penting.</p></li>
-</ul>
 </section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analisis-prediksi-permintaan-listrik-harian-di-victoria-australia">
+<h1>Analisis Prediksi Permintaan Listrik Harian di Victoria, Australia<a class="headerlink" href="#analisis-prediksi-permintaan-listrik-harian-di-victoria-australia" title="Permalink to this heading">#</a></h1>
+<p>Analisis pada notebook ini berfokus pada prediksi <strong>permintaan listrik harian (Electricity Demand)</strong> di negara bagian Victoria, Australia, dengan memanfaatkan metode <em>time series forecasting</em> yang dikombinasikan dengan variabel eksternal (<em>exogenous variables</em>). Pendekatan ini memungkinkan model tidak hanya mempelajari pola historis permintaan listrik, tetapi juga mempertimbangkan faktor-faktor lain yang dapat memengaruhi perubahan kebutuhan energi dari waktu ke waktu.</p>
+<p>Dataset yang digunakan adalah <strong>vic_electricity</strong>, yaitu kumpulan data konsumsi listrik dari jaringan listrik Victoria yang direkam setiap 30 menit. Untuk memudahkan proses analisis dan pemodelan, data tersebut diagregasi menjadi data harian sehingga menghasilkan total permintaan listrik per hari yang direpresentasikan oleh variabel <strong>Demand</strong>. Variabel ini menjadi target utama yang akan diprediksi oleh model karena merepresentasikan tingkat kebutuhan energi listrik masyarakat pada suatu hari tertentu.</p>
+<p>Selain memanfaatkan data historis permintaan listrik, analisis ini juga menggunakan variabel eksternal berupa <strong>Temperature</strong>, yaitu rata-rata suhu harian dalam satuan derajat Celsius (°C). Variabel suhu dipilih karena memiliki hubungan yang erat dengan pola konsumsi energi. Pada saat suhu meningkat, penggunaan perangkat pendingin seperti AC dan kipas angin cenderung bertambah sehingga konsumsi listrik meningkat. Sebaliknya, ketika suhu menurun, penggunaan perangkat pemanas juga dapat menyebabkan kenaikan kebutuhan energi. Oleh karena itu, suhu dianggap sebagai salah satu faktor penting yang dapat membantu meningkatkan akurasi prediksi permintaan listrik.</p>
+<p>Tujuan utama dari analisis ini tidak hanya menghasilkan prediksi yang akurat mengenai kebutuhan listrik di masa mendatang, tetapi juga memberikan pemahaman yang lebih mendalam mengenai faktor-faktor yang memengaruhi hasil prediksi tersebut. Untuk mencapai tujuan tersebut, pendekatan yang digunakan menekankan aspek <strong>interpretabilitas model</strong> sehingga kontribusi setiap fitur terhadap hasil prediksi dapat dianalisis dan dijelaskan secara lebih transparan. Dengan demikian, pengguna dapat memahami alasan di balik prediksi yang dihasilkan model, bukan hanya menerima hasil prediksi sebagai sebuah angka.</p>
 <hr class="docutils" />
 <section id="pertanyaan-2-bagaimana-bentuk-data-training-nya">
-<h3>Pertanyaan 2: Bagaimana Bentuk Data Training-nya?<a class="headerlink" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya" title="Permalink to this heading">#</a></h3>
+<h2>Pertanyaan 2: Bagaimana Bentuk Data Training-nya?<a class="headerlink" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya" title="Permalink to this heading">#</a></h2>
 <p><strong>INPUT (X_train):</strong> Matriks fitur yang terdiri dari:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -528,10 +535,10 @@ document.write(`
 <blockquote>
 <div><p><strong>Ringkasan:</strong> Model belajar: <em>“Berdasarkan permintaan listrik 7 hari terakhir dan suhu hari ini, berapakah permintaan listrik hari ini?”</em></p>
 </div></blockquote>
-</section>
 <hr class="docutils" />
+</section>
 <section id="pertanyaan-3-apa-itu-lag">
-<h3>Pertanyaan 3: Apa itu Lag?<a class="headerlink" href="#pertanyaan-3-apa-itu-lag" title="Permalink to this heading">#</a></h3>
+<h2>Pertanyaan 3: Apa itu Lag?<a class="headerlink" href="#pertanyaan-3-apa-itu-lag" title="Permalink to this heading">#</a></h2>
 <p><strong>Lag</strong> adalah nilai dari deret waktu (time series) pada titik waktu <strong>sebelumnya</strong> yang digunakan sebagai fitur input untuk model.</p>
 <p><strong>Analogi sederhana:</strong></p>
 <blockquote>
@@ -554,10 +561,10 @@ document.write(`
 <li><p><strong>Tanpa lag, model tidak tahu konteks temporal</strong> — ia tidak mengetahui kondisi “kemarin”.</p></li>
 </ol>
 <p><strong>Dalam skforecast:</strong> Parameter <code class="docutils literal notranslate"><span class="pre">lags=7</span></code> artinya model menggunakan 7 lag (lag_1 hingga lag_7) sebagai fitur.</p>
-</section>
 <hr class="docutils" />
+</section>
 <section id="pertanyaan-4-proses-analisis-yang-dilakukan">
-<h3>Pertanyaan 4: Proses Analisis yang Dilakukan<a class="headerlink" href="#pertanyaan-4-proses-analisis-yang-dilakukan" title="Permalink to this heading">#</a></h3>
+<h2>Pertanyaan 4: Proses Analisis yang Dilakukan<a class="headerlink" href="#pertanyaan-4-proses-analisis-yang-dilakukan" title="Permalink to this heading">#</a></h2>
 <p>Analisis dilakukan melalui <strong>5 tahapan utama</strong>:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -591,7 +598,6 @@ document.write(`
 </table>
 </div>
 </section>
-</section>
 <hr class="docutils" />
 <section id="bagian-1-instalasi-library-dan-import-data">
 <h2>Bagian 1: Instalasi Library dan Import Data<a class="headerlink" href="#bagian-1-instalasi-library-dan-import-data" title="Permalink to this heading">#</a></h2>
@@ -608,11 +614,12 @@ document.write(`
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 library skforecast telah terpasang
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 23.0.1 -&gt; 26.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 </div>
@@ -633,7 +640,15 @@ library skforecast telah terpasang
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Semua library berhasil diimport!
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">shap</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
@@ -3413,13 +3428,17 @@ Lag adalah nilai historis dari deret waktu yang digunakan sebagai fitur. <code c
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jawaban-pertanyaan">JAWABAN PERTANYAAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Forecaster Explainability:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance-shap-values-dan-partial-dependence-plots">Feature Importance, SHAP Values, dan Partial Dependence Plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-1-analisa-prediksi-tentang-apa">Pertanyaan 1: Analisa Prediksi Tentang Apa?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya">Pertanyaan 2: Bagaimana Bentuk Data Training-nya?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3-apa-itu-lag">Pertanyaan 3: Apa itu Lag?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4-proses-analisis-yang-dilakukan">Pertanyaan 4: Proses Analisis yang Dilakukan</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-prediksi-permintaan-listrik-harian-di-victoria-australia">Analisis Prediksi Permintaan Listrik Harian di Victoria, Australia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-2-bagaimana-bentuk-data-training-nya">Pertanyaan 2: Bagaimana Bentuk Data Training-nya?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-3-apa-itu-lag">Pertanyaan 3: Apa itu Lag?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pertanyaan-4-proses-analisis-yang-dilakukan">Pertanyaan 4: Proses Analisis yang Dilakukan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bagian-1-instalasi-library-dan-import-data">Bagian 1: Instalasi Library dan Import Data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-dan-import-library">1.1 Instalasi dan Import Library</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unduh-dan-eksplorasi-dataset">1.2 Unduh dan Eksplorasi Dataset</a></li>
@@ -3472,6 +3491,9 @@ Lag adalah nilai historis dari deret waktu yang digunakan sebagai fitur. <code c
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
