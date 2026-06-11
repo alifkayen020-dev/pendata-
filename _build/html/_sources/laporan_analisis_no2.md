@@ -10,7 +10,7 @@ Dokumen ini merangkum hasil analisis data kadar NO2 (Nitrogen Dioksida) yang dip
 
 Proses pertama adalah mendeteksi nilai-nilai ekstrem (*outlier*) pada data NO2 menggunakan metode **Interquartile Range (IQR)**. Titik-titik yang berada di luar batas atas (*upper bound*) dan batas bawah (*lower bound*) ditandai sebagai *outlier*.
 
-![Deteksi Outlier Data NO2](outlier_detection.png)
+![Deteksi Outlier Data NO2](images/outlier_detection.png)
 
 *Gambar 1: Visualisasi deteksi outlier pada data NO2 menggunakan metode IQR. Titik merah menunjukkan data yang teridentifikasi sebagai outlier, garis oranye putus-putus adalah upper bound, dan garis biru putus-putus adalah lower bound.*
 
@@ -20,7 +20,7 @@ Proses pertama adalah mendeteksi nilai-nilai ekstrem (*outlier*) pada data NO2 m
 
 Setelah *outlier* dihapus, nilai yang hilang (*missing values*) diisi menggunakan metode **interpolasi** sehingga data menjadi kontinu dan siap digunakan untuk analisis lebih lanjut.
 
-![Data NO2 Setelah Interpolasi](interpolated_data.png)
+![Data NO2 Setelah Interpolasi](images/interpolated_data.png)
 
 *Gambar 2: Plot data NO2 setelah proses outlier removal dan interpolasi. Data tampak lebih bersih dan kontinu tanpa lonjakan ekstrem.*
 
@@ -30,7 +30,7 @@ Setelah *outlier* dihapus, nilai yang hilang (*missing values*) diisi menggunaka
 
 Area studi yang digunakan dalam penelitian ini mencakup wilayah **Kabupaten Pati** dan sekitarnya di Jawa Tengah. Batas wilayah digambarkan menggunakan poligon dalam format **GeoJSON** dan divisualisasikan melalui platform geojson.io.
 
-![Peta Area Studi GeoJSON](geojson_map.jpeg)
+![Peta Area Studi GeoJSON](images/geojson_map.jpeg)
 
 *Gambar 3: Visualisasi area studi dalam bentuk poligon GeoJSON di atas peta wilayah Jawa Tengah, mencakup Kabupaten Pati dan sekitarnya.*
 

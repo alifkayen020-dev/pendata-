@@ -9,6 +9,9 @@ logo: logo.jpg
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+  exclude_patterns:
+    - data_crawling.ipynb
+    - temp/*
 
 exclude:
   - references.bib

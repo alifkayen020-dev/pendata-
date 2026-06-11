@@ -190,6 +190,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Pencarian_Mising_Value.html">Normalisasi dan Pengisian Missing Value dalam Penambangan Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tree.html">Decision Tree</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analisis_regresi_linier.html">Analisis Regresi Linier Sederhana</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_crawling.html">Analisis dan Penjelasan Proyek Peramalan NO2</a></li>
+
+
+
 </ul>
 
     </div>
@@ -411,21 +415,21 @@ document.write(`
 <section id="deteksi-outlier-data-no2-metode-iqr">
 <h2>1. Deteksi Outlier Data NO2 (Metode IQR)<a class="headerlink" href="#deteksi-outlier-data-no2-metode-iqr" title="Permalink to this heading">#</a></h2>
 <p>Proses pertama adalah mendeteksi nilai-nilai ekstrem (<em>outlier</em>) pada data NO2 menggunakan metode <strong>Interquartile Range (IQR)</strong>. Titik-titik yang berada di luar batas atas (<em>upper bound</em>) dan batas bawah (<em>lower bound</em>) ditandai sebagai <em>outlier</em>.</p>
-<p><img alt="Deteksi Outlier Data NO2" src="outlier_detection.png" /></p>
+<p><img alt="Deteksi Outlier Data NO2" src="_images/outlier_detection.png" /></p>
 <p><em>Gambar 1: Visualisasi deteksi outlier pada data NO2 menggunakan metode IQR. Titik merah menunjukkan data yang teridentifikasi sebagai outlier, garis oranye putus-putus adalah upper bound, dan garis biru putus-putus adalah lower bound.</em></p>
 </section>
 <hr class="docutils" />
 <section id="data-no2-setelah-outlier-removal-interpolasi">
 <h2>2. Data NO2 Setelah Outlier Removal &amp; Interpolasi<a class="headerlink" href="#data-no2-setelah-outlier-removal-interpolasi" title="Permalink to this heading">#</a></h2>
 <p>Setelah <em>outlier</em> dihapus, nilai yang hilang (<em>missing values</em>) diisi menggunakan metode <strong>interpolasi</strong> sehingga data menjadi kontinu dan siap digunakan untuk analisis lebih lanjut.</p>
-<p><img alt="Data NO2 Setelah Interpolasi" src="interpolated_data.png" /></p>
+<p><img alt="Data NO2 Setelah Interpolasi" src="_images/interpolated_data.png" /></p>
 <p><em>Gambar 2: Plot data NO2 setelah proses outlier removal dan interpolasi. Data tampak lebih bersih dan kontinu tanpa lonjakan ekstrem.</em></p>
 </section>
 <hr class="docutils" />
 <section id="area-studi-wilayah-pati-jawa-tengah-geojson">
 <h2>3. Area Studi — Wilayah Pati, Jawa Tengah (GeoJSON)<a class="headerlink" href="#area-studi-wilayah-pati-jawa-tengah-geojson" title="Permalink to this heading">#</a></h2>
 <p>Area studi yang digunakan dalam penelitian ini mencakup wilayah <strong>Kabupaten Pati</strong> dan sekitarnya di Jawa Tengah. Batas wilayah digambarkan menggunakan poligon dalam format <strong>GeoJSON</strong> dan divisualisasikan melalui platform <a class="reference external" href="http://geojson.io">geojson.io</a>.</p>
-<p><img alt="Peta Area Studi GeoJSON" src="geojson_map.jpeg" /></p>
+<p><img alt="Peta Area Studi GeoJSON" src="_images/geojson_map.jpeg" /></p>
 <p><em>Gambar 3: Visualisasi area studi dalam bentuk poligon GeoJSON di atas peta wilayah Jawa Tengah, mencakup Kabupaten Pati dan sekitarnya.</em></p>
 </section>
 <hr class="docutils" />
